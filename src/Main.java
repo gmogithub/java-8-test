@@ -1,11 +1,49 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
+//        testLambda();
+        testLambda2();
+
+    }
+
+
+    static boolean runTest() {
+        assert getTest() != null;
+        return getTest().equals("greg");
+    }
+
+    static String getTest() {
+        return null;
+    }
+
+    static void testLambda2() {
+        User user1 = new User("Greg", "Test");
+
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user1);
+
+        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
+        users.stream().map((User user) -> {
+            User user2 = user.duplicate();
+            user2.setFirstName("G2");
+            return user2;
+        }).forEach((User user) -> {
+            System.out.println(user.getFirstName());
+        });
+        Consumer<Boolean> consumer = (Boolean bool) -> System.out.println(bool); // Prend un argument est retourne void
+        Function<String, String> function = (String str) -> str.toUpperCase(); // prend un argument est return une valeur
+//        java.util.function.
+
+        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
+    }
+
+    static void testLambda() {
         TestEqualsAndHasCode testEqualsAndHasCode = new TestEqualsAndHasCode(1, "Greg");
         TestEqualsAndHasCode testEqualsAndHasCode2 = new TestEqualsAndHasCode(1, "Greg");
 //        System.out.println(testEqualsAndHasCode.hashCode() + "  " + testEqualsAndHasCode2.hashCode());
@@ -27,8 +65,8 @@ public class Main {
 //                .filter((String str) -> str.startsWith("G"))
                 .collect(Collectors.toList());
 
-//        strs.forEach(System.out::println);
-//        strs2.forEach(System.out::println);
+        strs.forEach(System.out::println);
+        strs2.forEach(System.out::println);
         // String::isEmpty;
         Predicate<String> estVide = n -> {
             if (n == null) return true;
@@ -42,16 +80,5 @@ public class Main {
         //assert getTest() != null; // "4".equals(toString.apply(4));
 //        runTest();
 //        Optional<String> str = new Optional<>("GReg");
-
-    }
-
-
-    static boolean runTest() {
-        assert getTest() != null;
-        return getTest().equals("greg");
-    }
-
-    static String getTest() {
-        return null;
     }
 }
