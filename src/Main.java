@@ -1,15 +1,36 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.Optional;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
 //        testLambda();
-        testLambda2();
+//        testLambda2();
+        testOptional();
 
+    }
+
+    private static void testOptional() {
+        User user = new User("Greg", "Greg");
+        Optional<String> def = Optional.of("Pas de nom");
+        Optional<User> userOptional = Optional.ofNullable(user);
+//        System.out.println(userOptional.isPresent());
+        Optional<String> str = userOptional.map((User u) -> {
+//            u.setLastName("Toto");
+            return u.getFirstName();
+        });
+
+        Optional<String> optionalS = Optional.ofNullable("Greggg");
+        String st = optionalS.map(string -> string.toUpperCase()).orElse(def.get());
+        System.out.println(optionalS.orElseGet(() -> "Test".toUpperCase()));
+
+        System.out.println(st);
+//        if() {
+//
+//        }
+//        userOptional.
     }
 
 
@@ -28,19 +49,58 @@ public class Main {
         ArrayList<User> users = new ArrayList<>();
         users.add(user1);
 
-        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
+//        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
         users.stream().map((User user) -> {
             User user2 = user.duplicate();
             user2.setFirstName("G2");
             return user2;
         }).forEach((User user) -> {
-            System.out.println(user.getFirstName());
+//            System.out.println(user.getFirstName());
         });
-        Consumer<Boolean> consumer = (Boolean bool) -> System.out.println(bool); // Prend un argument est retourne void
-        Function<String, String> function = (String str) -> str.toUpperCase(); // prend un argument est return une valeur
-//        java.util.function.
+        Consumer<String> consumer = (String str) -> System.out.println(str + " =="); // Prend un argument est retourne void
+        Consumer<String> consumer2 = (String str) -> System.out.println(str.toUpperCase()); // Prend un argument est retourne void
+        Function<String, String> function = (String str) -> str + " =="; // prend un argument est return une valeur
+        Function<String, String> function2 = (String str) -> str.toUpperCase(); // prend un argument est return une valeur
 
-        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
+//        consumer.andThen(consumer2).accept("GReg");
+//        System.out.println(function.andThen(function2).apply("Greg"));
+//        System.out.println(function.compose(function2).apply("Test"));
+
+        Function<Integer, Integer> func1 = (Integer number) -> {
+            Integer result = number * 2;
+            System.out.println("Param 1 = " + number + " result = " + result);
+            return result;
+        };
+
+        Function<Integer, Integer> func2 = (Integer number) -> {
+            Integer result = number * number;
+            System.out.println("Param 2 = " + number + " result = " + result);
+            return result;
+        };
+
+        Predicate<String> isEmpty = (String str) -> {
+            if (str == null) return true;
+            return str.isEmpty();
+        };
+
+        BiPredicate<String, String> startsWith = (str, startWith) -> {
+            if (str != null) {
+                return str.startsWith(startWith);
+            }
+
+            return false;
+        };
+
+        System.out.println(func1.compose(func2).apply(4));
+        System.out.println(func1.andThen(func2).apply(4));
+        String str = "Greg";
+        if (isEmpty.negate().test(str)) {
+            System.out.println(startsWith.test(str, "g"));
+        }
+//        System.out.println(isEmpty.or(startsWith).test("Greg"));
+
+
+//        users.forEach((User user) -> System.out.println(user.getFirstName() + " " + user.getLastName()));
     }
 
     static void testLambda() {
