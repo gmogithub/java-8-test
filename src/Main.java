@@ -1,15 +1,66 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
 //        testLambda();
 //        testLambda2();
-        testOptional();
+//        testOptional();
+        testMapAndMapFlat();
+    }
 
+    private static void testMapAndMapFlat() {
+        ArrayList<String> strs = new ArrayList<>();
+        strs.add("greg");
+        strs.add("borris");
+        strs.add("saliou");
+        strs.add("risana");
+        strs.add("mimoud");
+        strs.add("mourad");
+        strs.add("tao");
+
+//        strs.stream().map(str -> str.toUpperCase()).forEach(System.out::println);
+
+        Stream<String> strsTmp = null;
+//        Stream.
+//        strs.stream().reduce((String st, String st2) -> {
+//            System.out.println(st);
+//            System.out.println(st2);
+//            return st + " " + st2;
+//            // return st.toUpperCase();
+//        });
+
+        Stream<Integer> ints = Stream.of(1000, 2560, 1250, 90, 100);
+
+        // System.out.println(ints.reduce((n1, n2) -> n1 * n2).get());
+//        int max;
+//        int index = 0;
+        AtomicInteger index = new AtomicInteger(0);
+        AtomicInteger min = new AtomicInteger(0);
+//        Consumer<Integer> consumer = (Integer i) -> {
+////            System.out.println(atomicInteger.get());
+//        };
+
+//        consumer.accept(index);
+        ints.forEach((Integer i) -> {
+            if (index.get() == 0) {
+                min.set(i);
+            } else if (min.get() > i){
+                min.set(i);
+            }
+            index.incrementAndGet();
+        });
+
+        System.out.println(min.get());
+        // strs2.forEach(System.out::println);
+
+
+//        Stream<String> s = Stream.of("G", "A");
     }
 
     private static void testOptional() {
