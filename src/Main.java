@@ -36,25 +36,31 @@ public class Main {
 //        });
 
         Stream<Integer> ints = Stream.of(1000, 2560, 1250, 90, 100);
-
+        Optional<Integer> in = ints.reduce((a, b) -> {
+            System.out.println(a + "====");
+            System.out.println(b + "=====");
+           return a;
+        });
+        System.out.println(in.get());
         // System.out.println(ints.reduce((n1, n2) -> n1 * n2).get());
 //        int max;
 //        int index = 0;
         AtomicInteger index = new AtomicInteger(0);
         AtomicInteger min = new AtomicInteger(0);
+        String str;
 //        Consumer<Integer> consumer = (Integer i) -> {
 ////            System.out.println(atomicInteger.get());
 //        };
 
 //        consumer.accept(index);
-        ints.forEach((Integer i) -> {
-            if (index.get() == 0) {
-                min.set(i);
-            } else if (min.get() > i){
-                min.set(i);
-            }
-            index.incrementAndGet();
-        });
+//        ints.forEach((Integer i) -> {
+//            if (index.get() == 0) {
+//                min.set(i);
+//            } else if (min.get() > i){
+//                min.set(i);
+//            }
+//            index.incrementAndGet();
+//        });
 
         System.out.println(min.get());
         // strs2.forEach(System.out::println);
