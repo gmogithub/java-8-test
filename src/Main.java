@@ -11,10 +11,14 @@ public class Main {
 //        testLambda();
 //        testLambda2();
 //        testOptional();
-        testMapAndMapFlat();
+//        testMapAndMapFlat();
+//        runTest();
+        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
+        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
     }
 
     private static void testMapAndMapFlat() {
+        Integer test = null;
         ArrayList<String> strs = new ArrayList<>();
         strs.add("greg");
         strs.add("borris");
@@ -23,6 +27,8 @@ public class Main {
         strs.add("mimoud");
         strs.add("mourad");
         strs.add("tao");
+
+
 
 //        strs.stream().map(str -> str.toUpperCase()).forEach(System.out::println);
 
@@ -35,11 +41,11 @@ public class Main {
 //            // return st.toUpperCase();
 //        });
 
-        Stream<Integer> ints = Stream.of(1000, 2560, 1250, 90, 100);
+        Stream<Integer> ints = Stream.of(1000, 2550, 1250, 50, 100);
         Optional<Integer> in = ints.reduce((a, b) -> {
             System.out.println(a + "====");
             System.out.println(b + "=====");
-           return a;
+           return a + b;
         });
         System.out.println(in.get());
         // System.out.println(ints.reduce((n1, n2) -> n1 * n2).get());
@@ -82,7 +88,6 @@ public class Main {
         Optional<String> optionalS = Optional.ofNullable("Greggg");
         String st = optionalS.map(string -> string.toUpperCase()).orElse(def.get());
         System.out.println(optionalS.orElseGet(() -> "Test".toUpperCase()));
-
         System.out.println(st);
 //        if() {
 //
@@ -198,4 +203,10 @@ public class Main {
 //        runTest();
 //        Optional<String> str = new Optional<>("GReg");
     }
+
+
+    static void testNullable () {
+
+    }
 }
+

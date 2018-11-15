@@ -1,11 +1,24 @@
+import java.util.UUID;
+
 public class TestEqualsAndHasCode {
-    private int id = 0;
+
+    private final int id;
+    private final String code;
     private String name;
 
 
-    public TestEqualsAndHasCode(int id, String name) {
+    public TestEqualsAndHasCode(int id, String name, String code) {
         this.id = id;
         this.name = name;
+        this.code = code;
+    }
+
+    public TestEqualsAndHasCode(int id, String name) {
+        this(id, name, UUID.randomUUID().toString());
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public int getId() {
