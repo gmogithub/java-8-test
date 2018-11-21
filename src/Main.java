@@ -1,3 +1,5 @@
+import kotlintest.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -13,8 +15,9 @@ public class Main {
 //        testOptional();
 //        testMapAndMapFlat();
 //        runTest();
-        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
-        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
+        LogUtils.logMessage("test log kt");
+//        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
+//        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
     }
 
     private static void testMapAndMapFlat() {
