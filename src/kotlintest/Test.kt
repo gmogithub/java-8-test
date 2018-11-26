@@ -1,5 +1,7 @@
 package kotlintest
 
+import kotlintest.extensions.sayHello
+import kotlintest.extensions.toPlural
 import kotlintest.utils.logMessage;
 
 
@@ -14,7 +16,12 @@ fun main(args: Array<String>) {
 //    println(setOf(Color.RED, Color.BLUE) == setOf(Color.BLUE, Color.RED))
 //    val color:String = mixColors(Color.RED, Color.BLUE)
 //    println(color)
-    checkNumber(8L)
+//    checkNumber(8L)
+//    val str: String = "Voiture"
+//    //str.sayHello()
+//    println(str.toPlural())
+    val dataTest: DataTest = DataTest("0001", "Greg")
+    println(dataTest.copy() == dataTest)
 }
 
 fun test(): String {
