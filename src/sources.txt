@@ -1,0 +1,5 @@
+/home/gmo/java/workspace/java-8-test/src/annotation/MyClass1.java
+/home/gmo/java/workspace/java-8-test/src/annotation/MyClass2.java
+/home/gmo/java/workspace/java-8-test/src/annotation/MyClass3.java
+/home/gmo/java/workspace/java-8-test/src/annotation/NIVEAU.java
+/home/gmo/java/workspace/java-8-test/src/annotation/Todo.java
