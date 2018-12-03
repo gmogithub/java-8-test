@@ -21,7 +21,9 @@ public class Main {
 //        LogUtils.logMessage("test log kt");
 //        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
 //        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
+
         User user = new User("Greg", "GReg");
+        java.util.HashMap
         System.out.println(user.getFirstName() + " " + user.getLastName());
         Class obj = Class.forName(User.class.getName());
         System.out.println(obj.getName());
