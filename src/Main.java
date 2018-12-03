@@ -1,3 +1,7 @@
+import annotation.Todo;
+import kotlintest.utils.LogUtils;
+import processors.TodoProcessor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,14 +11,23 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws ClassNotFoundException {
 //        testLambda();
 //        testLambda2();
 //        testOptional();
 //        testMapAndMapFlat();
 //        runTest();
-        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
-        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
+//        LogUtils.logMessage("test log kt");
+//        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
+//        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
+
+        User user = new User("Greg", "GReg");
+        java.util.HashMap
+        System.out.println(user.getFirstName() + " " + user.getLastName());
+        Class obj = Class.forName(User.class.getName());
+        System.out.println(obj.getName());
+//        if(obj.getName()) System.out.println("OK");
     }
 
     private static void testMapAndMapFlat() {
