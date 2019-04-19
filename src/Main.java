@@ -10,9 +10,15 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+enum TEST {
+    USER,
+    CUSTOMER
+}
+
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException {
+        System.out.println(TEST.USER);
 //        testLambda();
 //        testLambda2();
 //        testOptional();
@@ -21,12 +27,12 @@ public class Main {
 //        LogUtils.logMessage("test log kt");
 //        TestEqualsAndHasCode tes = new TestEqualsAndHasCode(120, "GReg");
 //        System.out.println(tes.getId() + "  " + tes.getName() + " " + tes.getCode());
-
-        User user = new User("Greg", "GReg");
-        java.util.HashMap
-        System.out.println(user.getFirstName() + " " + user.getLastName());
-        Class obj = Class.forName(User.class.getName());
-        System.out.println(obj.getName());
+        System.out.println("Main");
+//        User user = new User("Greg", "GReg");
+//        java.util.HashMap<String, String> map = new java.util.HashMap<>();
+//        System.out.println(user.getFirstName() + " " + user.getLastName());
+//        Class obj = Class.forName(User.class.getName());
+//        System.out.println(obj.getName());
 //        if(obj.getName()) System.out.println("OK");
     }
 
